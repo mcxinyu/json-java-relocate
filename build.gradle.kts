@@ -20,25 +20,20 @@ tasks {
         isEnableRelocation = true
         archiveClassifier = ""
     }
-    assemble {
-        dependsOn(shadowJar)
-    }
 }
 
-afterEvaluate {
-    publishing {
-        publications {
-            create<MavenPublication>("maven") {
-                afterEvaluate {
-                    from(components["shadow"])
-                }
+publishing {
+    publications {
+        create<MavenPublication>("maven") {
+            afterEvaluate {
+                from(components["shadow"])
             }
         }
-        repositories {
-            maven {
-                name = "XXX"
-                url = uri("${project.buildDir}/repo")
-            }
+    }
+    repositories {
+        maven {
+            name = "XXX"
+            url = uri("${project.buildDir}/repo")
         }
     }
 }
