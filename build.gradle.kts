@@ -24,10 +24,8 @@ tasks {
 
 publishing {
     publications {
-        create<MavenPublication>("maven") {
-            afterEvaluate {
-                from(components["shadow"])
-            }
+        create<MavenPublication>("shadow") {
+            from(components["shadow"])
         }
     }
     repositories {
