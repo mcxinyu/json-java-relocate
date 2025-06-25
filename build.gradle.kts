@@ -19,9 +19,8 @@ tasks {
     shadowJar {
         isEnableRelocation = true
         archiveClassifier = ""
-        relocate("org.json", "shadow.org.json")
     }
-    build {
+    assemble {
         dependsOn(shadowJar)
     }
 }
@@ -33,6 +32,12 @@ afterEvaluate {
                 afterEvaluate {
                     from(components["shadow"])
                 }
+            }
+        }
+        repositories {
+            maven {
+                name = "XXX"
+                url = uri("${project.buildDir}/repo")
             }
         }
     }
