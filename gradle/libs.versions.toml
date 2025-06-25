@@ -1,0 +1,9 @@
+[versions]
+shadow = "8.3.7"
+json = "20250517"
+
+[libraries]
+json = { module = "org.json:json", version.ref = "json" }
+
+[plugins]
+shadow = { id = "com.gradleup.shadow", version.ref = "shadow" }
